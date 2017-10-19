@@ -1,9 +1,8 @@
 # AngularHttpInterceptor
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
-
-
 This is a sample application demonstrating how to use angular HttpInterceptors to intercept Http requests and how to use this feature to show a spinner icon whenever there is a server request throughout the application. 
+
+HttpInterceptor is based on <a href="https://github.com/mpalourdio/ng-http-loader">this</a>. 
 
 ## Development server
 
