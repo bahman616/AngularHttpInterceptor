@@ -4,6 +4,10 @@ This is a sample application demonstrating how to use angular HttpInterceptors t
 
 HttpInterceptor is based on <a href="https://github.com/mpalourdio/ng-http-loader">this</a>. 
 
+## Installation
+
+Run `npm install` to install required packages.
+
 ## Development server
 
 Run `npm start` to start the application. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
