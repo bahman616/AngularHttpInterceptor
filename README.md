@@ -2,13 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
+
+This is a sample application demonstrating how to use angular HttpInterceptors to intercept Http requests and how to use this feature to show a spinner icon whenever there is a server request throughout the application. 
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm start` to start the application. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 

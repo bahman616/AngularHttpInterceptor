@@ -1,27 +1,42 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { AppService } from './app.service';
+import { HttpClientModule } from '@angular/common/http';
+import { SpinnerInterceptorService } from './spinner/spinner.interceptor';
+import { Observable } from 'rxjs';
+
 describe('AppComponent', () => {
+  let appService: AppService;
+  let app: AppComponent;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        SpinnerComponent
       ],
+      providers: [AppService, SpinnerInterceptorService],
+      imports: [HttpClientModule]
     }).compileComponents();
+
+    const fixture = TestBed.createComponent(AppComponent);
+    app = fixture.debugElement.componentInstance;
+
+    appService = TestBed.get(AppService);
+    spyOn(appService, 'getValues').and.returnValue(Observable.of(['values']));
   }));
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
+  it(`should have as title 'HTTPInterceptor sample app'`, async(() => {
+    expect(app.title).toEqual('HTTPInterceptor sample app');
   }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+  describe('when initialising', () => {
+    beforeEach(() => {
+      app.ngOnInit();
+    });
+    it(`should set values`, async(() => {
+      expect(app.values).toEqual(['values']);
+    }));
+  });
 });
